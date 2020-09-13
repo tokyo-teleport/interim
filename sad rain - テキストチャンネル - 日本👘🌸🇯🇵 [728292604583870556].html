@@ -1,0 +1,2509 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>sad rain - 日本&#128088;&#127800;&#127471;&#127477;</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://cdn.discordapp.com/icons/728282978299674715/41a91254a2c60ca409b40556ad4e3404.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">sad rain</div>
+        <div class="preamble__entry">テキストチャンネル / 日本&#128088;&#127800;&#127471;&#127477;</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 01:57 AM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="728293327555919963" id="message-728293327555919963">
+                <div class="chatlog__content">
+                    <div class="markdown">日本人の方とも繋がりたいので日本人専用のチャンネルを作りました、よろしくお願い致します✨ <span class="chatlog__edited-timestamp" title="03-Jul-20 02:38 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="728293356140232857" id="message-728293356140232857">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 03:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="728502453594488902" id="message-728502453594488902">
+                <div class="chatlog__content">
+                    <div class="markdown">This is japan! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="728870042384466021" id="message-728870042384466021">
+                <div class="chatlog__content">
+                    <div class="markdown">こんにちは </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 04:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="728872824831475762" id="message-728872824831475762">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> こんにちは！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 06:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="728902598312067092" id="message-728902598312067092">
+                <div class="chatlog__content">
+                    <div class="markdown">こんにちは！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 06:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="728903358395449375" id="message-728903358395449375">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Nehちゃん#3561">@Nehちゃん</span> 
+Nehちゃんさん初めまして！こんにちは！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 06:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="728905336425283596" id="message-728905336425283596">
+                <div class="chatlog__content">
+                    <div class="markdown">初めまして！サイファーやレーベル以外の日本人エモラップコミュニティは少ないので人増えたら面白そうですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 01:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="729016753476206643" id="message-729016753476206643">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Nehちゃん#3561">@Nehちゃん</span> 
+そうですね！もっとそうゆうコミニティ増やしてみたいです<img class="emoji " alt="🤤" title="🤤" src="https://twemoji.maxcdn.com/2/72x72/1f924.png"> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 03:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="729578988695060530" id="message-729578988695060530">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="sad rain#5767">@sad rain</span> エモ系のtype beatとかLo-fi系詳しいですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 04:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="729596497670176891" id="message-729596497670176891">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Nehちゃん#3561">@Nehちゃん</span> 
+そうゆうのはあんまり詳しくないです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 05:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="729616136093696012" id="message-729616136093696012">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="sad rain#5767">@sad rain</span> そうですか。これ系の曲作ってる人居たら教えて欲しいです。 </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="https://cdn.discordapp.com/attachments/728292604583870556/729616134550061096/After_School.mp3">
+Attachment: After_School.mp3 (2.02 MB)                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="729616148408041532" id="message-729616148408041532">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="https://cdn.discordapp.com/attachments/728292604583870556/729616147594477618/Kaneda.mp3">
+Attachment: Kaneda.mp3 (5.56 MB)                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="729616148710162512" id="message-729616148710162512">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="https://cdn.discordapp.com/attachments/728292604583870556/729616147875495986/Seven_Falls.mp3">
+Attachment: Seven_Falls.mp3 (3.31 MB)                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 12:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="729714591998935072" id="message-729714591998935072">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Nehちゃん#3561">@Nehちゃん</span> 
+んーこれ系の曲作ってる人は全然知らないですね、今度見つけたらその時教えます！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 08:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="729848398668234814" id="message-729848398668234814">
+                <div class="chatlog__content">
+                    <div class="markdown">連絡とれるラッパーとかは何人くらいいる感じですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 04:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="729968978415583263" id="message-729968978415583263">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+今のところ9人連絡取れます！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 06:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="730543256965873714" id="message-730543256965873714">
+                <div class="chatlog__content">
+                    <div class="markdown">AMV系のYouTubeチャンネルだと、キュレーション目的の人と趣味で上げてるだけの人と両方いて、見分けが難しいですよね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 07:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="730545079491756163" id="message-730545079491756163">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+確かに見分け難しいですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 09:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="741265662546018315" id="message-741265662546018315">
+                <div class="chatlog__content">
+                    <div class="markdown">これ前に載せた曲なんですけどばり良くないですか？
+<a href="https://youtu.be/849A46pIRv0">https://youtu.be/849A46pIRv0</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCZ4XBFuYtqvFFA15GRNp15g">sad.悲傷</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=849A46pIRv0">
+                                                    <div class="markdown">pasteldrip - Antisocial feat. suisside (prod. poppa)</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Pasteldrip
+<a href="https://soundcloud.com/pasteldrip?ref=clipboard">https://soundcloud.com/pasteldrip?ref=clipboard</a>
+<a href="https://instagram.com/pastelxos?igshid=1rb60hov4c5uo">https://instagram.com/pastelxos?igshid=1rb60hov4c5uo</a>
+<a href="https://twitter.com/pastelxos?s=09">https://twitter.com/pastelxos?s=09</a>
+<a href="https://open.spotify.com/artist/5CSVtQpFZevcKVOGjRMhed">https://open.spotify.com/artist/5CSVtQpFZevcKVOGjRMhed</a>
+<a href="https://audiomack.com/pasteldrip">https://audiomack.com/pasteldrip</a>
+<a href="https://discord.com/invite/RZ6m3aY">https://discord.com/invite/RZ6m3aY</a>
+
+//////...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://i.ytimg.com/vi/849A46pIRv0/hqdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="https://i.ytimg.com/vi/849A46pIRv0/hqdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 11:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="741294985982247034" id="message-741294985982247034">
+                <div class="chatlog__content">
+                    <div class="markdown">いいですねー！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 11:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="741295478963961913" id="message-741295478963961913">
+                <div class="chatlog__content">
+                    <div class="markdown">ですよね！featされてる人もめちゃくちゃおすすめなんで良かったら聴いてみてください<img class="emoji " alt="🔥" title="🔥" src="https://twemoji.maxcdn.com/2/72x72/1f525.png"> </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/580290181614010371/e56e574fac66e25f1566a67ca28cc8dd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nehちゃん#3561" data-user-id="580290181614010371" style="">Nehちゃん</span>
+
+
+        <span class="chatlog__timestamp">24-Aug-20 07:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="747215890168283280" id="message-747215890168283280">
+                <div class="chatlog__content">
+                    <div class="markdown">動画編集って普段何使われてます？Premiereですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-20 10:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="753252896295878708" id="message-753252896295878708">
+                <div class="chatlog__content">
+                    <div class="markdown">チャンネルの宣伝ってどうしてますか？ <span class="chatlog__edited-timestamp" title="09-Sep-20 10:58 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="753364657216946307" id="message-753364657216946307">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Nehちゃん#3561">@Nehちゃん</span> 
+すみません！返信が遅くなりました。編集はいつもPowerDirector使ってます！ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753364777098674235" id="message-753364777098674235">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> チャンネルの宣伝はいつもインスタとTwitterで行ってます！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="753412599814815774" id="message-753412599814815774">
+                <div class="chatlog__content">
+                    <div class="markdown">僕らもインスタが一番効率が良い気がしてますが、思った程伸びなくて難しいですね </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753414019230072884" id="message-753414019230072884">
+                <div class="chatlog__content">
+                    <div class="markdown">互いの意見交換も兼ねてインタビューしてもいいですか？キュレーションチャンネルをキュレーションする目的でweb記事書くことも計画してるので、実験的に協力して貰えるとうれしいです！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 03:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="753506868403372103" id="message-753506868403372103">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 良いですよ！✨ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 03:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="753508997423824988" id="message-753508997423824988">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます！ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753509365318811668" id="message-753509365318811668">
+                <div class="chatlog__content">
+                    <div class="markdown">早速ですが、sad.悲傷のチャンネルで使う曲はどのように選んで(集めて)いるのですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="753511781120475257" id="message-753511781120475257">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> Sound Cloudや他のキュレーターチャンネルでエモやChillを中心にディグって選んでいます、たまに5vやoaf1みたいなアーティストを選んで曲をチャンネルに載せてたりもします </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="753517871690285107" id="message-753517871690285107">
+                <div class="chatlog__content">
+                    <div class="markdown">曲を募集したり、使用の際にアーティストとコミュニケーションとったりはしてないですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="753518037944238080" id="message-753518037944238080">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> してますよ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="753518414940602388" id="message-753518414940602388">
+                <div class="chatlog__content">
+                    <div class="markdown">Sound CloudのDMで許可とって使う感じですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="753518906504904745" id="message-753518906504904745">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> InstagramやTwitterのDMで可能取って使ってます。Sound CloudでDM出来るとは知らなかったですw </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="753521041262903347" id="message-753521041262903347">
+                <div class="chatlog__content">
+                    <div class="markdown">僕らは最初、サンクラで全部曲のオファーしてたんですが、返事が遅かったり返答率はかなり低いですね。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753521511754760234" id="message-753521511754760234">
+                <div class="chatlog__content">
+                    <div class="markdown">流れが悪かったかもしれないですね。戻って、YouTubeチャンネルを始めた経緯や目的を聞いてもいいですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="753521714134122526" id="message-753521714134122526">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 全然良いですよ！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="753522854217121842" id="message-753522854217121842">
+                <div class="chatlog__content">
+                    <div class="markdown">前にも言いましたが、似たようなチャンネルでもAMVを投稿するのが目的の人や、僕らみたいなプロモーション目的だったり、動画を一人で編集してる人や、動画も募集してるチャンネルなど、いろいろなので。どういうチャンネルなのか説明してもらえますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="753523263933513809" id="message-753523263933513809">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 了解です！ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753524083966345247" id="message-753524083966345247">
+                <div class="chatlog__content">
+                    <div class="markdown">「チャンネルを始めた経緯」
+僕が始めた経緯はデーモンastariの影響でチャンネルを作りました、
+彼のチャンネルの雰囲気がとても大好きで自分も真似してみようと思って出来たチャンネルがsad.悲傷です。
+
+「チャンネルの目的」
+主な目的はアーティストの曲を色んな人に聴いてもらってその人のファンを増やすことです。
+
+
+「どういうチャンネルなのか」
+僕のチャンネルはプロモーション目的でやってます。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 04:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="753524988929114132" id="message-753524988929114132">
+                <div class="chatlog__content">
+                    <div class="markdown">デーモンAstariの影響は僕らも大きいです。曲の特徴についてはさっき聞いたので、映像面での特徴やこだわりについて聞きたいです。編集まで一人で行ってるんですよね？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="753525926314246266" id="message-753525926314246266">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 編集と言ってもそんなに大きいことはやってないです
+画面にアーティストのsns
+アカウントのlink出したりとかそんな感じです、今は面倒くさくてやってないですけどね
+こだわりとかは特に持ってないです。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="753526406490619905" id="message-753526406490619905">
+                <div class="chatlog__content">
+                    <div class="markdown">AMVに特にこだわりがあるわけではない？因みに映像素材はどうやって選んで、どこからとってきてますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="753527015360954480" id="message-753527015360954480">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> AMVはそんなにこだわりは無いです、これいいなとか曲に合ってるなって思ったものを選んでます。
+映像素材はいつもPinterestでとってます </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="753527642602340352" id="message-753527642602340352">
+                <div class="chatlog__content">
+                    <div class="markdown">チャンネルとしてのこれからの目標はありますか？ <span class="chatlog__edited-timestamp" title="10-Sep-20 05:09 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="753528359987970059" id="message-753528359987970059">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+MVを作って見たいっていう目標があります、めちゃくちゃ作りたいです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="753529474481520663" id="message-753529474481520663">
+                <div class="chatlog__content">
+                    <div class="markdown">実写となると難しいですよね。技術的にもだけど、海外のアーティストを撮影するのは物理的なハードルがある。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753530160938090537" id="message-753530160938090537">
+                <div class="chatlog__content">
+                    <div class="markdown">僕らも実写は無理なので、かといってAMV以外の表現がしたくて、イラストを編集したり３Dを使ったりいろいろ試行錯誤してます </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="753532604837396510" id="message-753532604837396510">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+そうなんですよ
+あまり編集技術も持ってないですし僕英語あまり得意じゃないので余計難しいです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="753533649416093767" id="message-753533649416093767">
+                <div class="chatlog__content">
+                    <div class="markdown">そもそも日本でこういう活動してる人はほとんどいないですよね？ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753534016065372230" id="message-753534016065372230">
+                <div class="chatlog__content">
+                    <div class="markdown">日本でやってることについて、なんかこだわりとかありますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="753535666545098814" id="message-753535666545098814">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+やっぱり活動してる所が日本なので日本のアーティストをより多くの国の人に知ってもらう為に日本のアーティストの曲はめちゃくちゃ考えて曲を選ぶことがこだわりです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="753536405006844016" id="message-753536405006844016">
+                <div class="chatlog__content">
+                    <div class="markdown">僕らも、日本のアーティストが比較的多いですが、結局日本人の視聴者が多くなっちゃうんですよね </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753536708061954098" id="message-753536708061954098">
+                <div class="chatlog__content">
+                    <div class="markdown">質問してばっかりだとあれなので、逆に僕らに質問とかありますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="753537854684135477" id="message-753537854684135477">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+そうなんですよ笑
+でも逆に日本人の方々が海外の方の曲に出会えるんですよ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753537875148013608" id="message-753537875148013608">
+                <div class="chatlog__content">
+                    <div class="markdown">んーとそうですねえ
+曲を選ぶ時のこだわりとか聞きたいです！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 05:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="753539535035564072" id="message-753539535035564072">
+                <div class="chatlog__content">
+                    <div class="markdown">ジャンル的にエモラップで完成度がよければ大体使うんですが、特にhella sketchyみたいにゲームとかアニメ文化にリスペクトのあるアーティストの曲は積極的に使ってます。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="753541068104007771" id="message-753541068104007771">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+なるほど、確かにアニメやゲームをリスペクトしているアーティスト達の曲が多いですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="753541702064668692" id="message-753541702064668692">
+                <div class="chatlog__content">
+                    <div class="markdown">最近はサブミッションフォームの曲を使うことが多いので、逆にジャンルがぶれてきてるかもしれないですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="753544320560267316" id="message-753544320560267316">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> なるほどです、东京电讯さんイチオシのアーティストとか居ますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="753547101933142046" id="message-753547101933142046">
+                <div class="chatlog__content">
+                    <div class="markdown">永眠ちゃんはやっぱりいいですね。他の日本のラッパーだとespeonはもっと売れてもいいと思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="753548986086064149" id="message-753548986086064149">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 永眠ちゃん！良いですよね
+声が可愛くてめちゃくちゃ好きです。espeonさんも良いですよね、Lil Kuudereとの曲好きです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="753551130860060673" id="message-753551130860060673">
+                <div class="chatlog__content">
+                    <div class="markdown">もっと規模を大きくしてプロモーション効果のあるチャンネルに育て上げたいのですが、なかなか登録者が伸びなくて悩んでます。sad.悲傷は規模的にどこまで伸ばしたいとかはありますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 07:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="753557005037207593" id="message-753557005037207593">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 来年か今年中には登録者500人〜1000人ぐらいまで伸ばしたいと思っています </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 07:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="753561930865573898" id="message-753561930865573898">
+                <div class="chatlog__content">
+                    <div class="markdown">SNSなどYouTube以外の活動はどのようにしてますか？ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753562137527582750" id="message-753562137527582750">
+                <div class="chatlog__content">
+                    <div class="markdown">僕らの場合は、インスタのDM経由でYouTubeとDiscordのリンクを踏んでもらうのがほとんどで、ユーザーとのコミュニケーションがDiscordがメインになってます。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 07:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="753564046283767843" id="message-753564046283767843">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+YouTube以外での活動はInstagramやTwitterなどでチャンネルに新しく載せた曲やアーティストの宣伝をしています </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 07:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="753565580187140197" id="message-753565580187140197">
+                <div class="chatlog__content">
+                    <div class="markdown">インスタだとリンク貼れないから、宣伝としては使いづらくないですか？アーティストのインスタアカウントを宣伝する感じですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 07:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="753566114671493171" id="message-753566114671493171">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> ストリートでチャンネルに載せた曲の動画を載っけて宣伝しています </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 08:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="753577514160488498" id="message-753577514160488498">
+                <div class="chatlog__content">
+                    <div class="markdown">そうなんですね。因みにこれまでの動画でsad rainさんのお気に入りはどれですか？可能であれば宣伝しておきます。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 08:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="753581939256197243" id="message-753581939256197243">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> ほんとうですかありがとうございます！。
+この曲がお気に入りです<img class="emoji " alt="🔥" title="🔥" src="https://twemoji.maxcdn.com/2/72x72/1f525.png">
+<a href="https://youtu.be/849A46pIRv0">https://youtu.be/849A46pIRv0</a>
+<a href="https://youtu.be/DMC8djxGWrE">https://youtu.be/DMC8djxGWrE</a>
+<a href="https://youtu.be/eOQsXG2ghRo">https://youtu.be/eOQsXG2ghRo</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCZ4XBFuYtqvFFA15GRNp15g">sad.悲傷</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=849A46pIRv0">
+                                                    <div class="markdown">pasteldrip - Antisocial feat. suisside (prod. poppa)</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Pasteldrip
+<a href="https://soundcloud.com/pasteldrip?ref=clipboard">https://soundcloud.com/pasteldrip?ref=clipboard</a>
+<a href="https://instagram.com/pastelxos?igshid=1rb60hov4c5uo">https://instagram.com/pastelxos?igshid=1rb60hov4c5uo</a>
+<a href="https://twitter.com/pastelxos?s=09">https://twitter.com/pastelxos?s=09</a>
+<a href="https://open.spotify.com/artist/5CSVtQpFZevcKVOGjRMhed">https://open.spotify.com/artist/5CSVtQpFZevcKVOGjRMhed</a>
+<a href="https://audiomack.com/pasteldrip">https://audiomack.com/pasteldrip</a>
+<a href="https://discord.com/invite/RZ6m3aY">https://discord.com/invite/RZ6m3aY</a>
+
+//////...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://i.ytimg.com/vi/849A46pIRv0/hqdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="https://i.ytimg.com/vi/849A46pIRv0/hqdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCZ4XBFuYtqvFFA15GRNp15g">sad.悲傷</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=DMC8djxGWrE">
+                                                    <div class="markdown">daystowaste. - crashmycar  (Prod. caspr)</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">daystowaste.
+<a href="https://instagram.com/daystowaste?igshid=9hfxdcpo43h0">https://instagram.com/daystowaste?igshid=9hfxdcpo43h0</a>
+ <a href="https://twitter.com/DaysToWaste?s=09">https://twitter.com/DaysToWaste?s=09</a>
+<a href="https://open.spotify.com/artist/3atbVRVOuIUxjoxeuNbd26">https://open.spotify.com/artist/3atbVRVOuIUxjoxeuNbd26</a>
+<a href="https://soundcloud.com/daystowaste?ref=clipboard">https://soundcloud.com/daystowaste?ref=clipboard</a>
+
+
+sad.悲傷
+<a href="https://instagram.com/lilsadrain?igshid=184xemhyjn33g">https://instagram.com/lilsadrain?igshid=184xemhyjn33g</a>
+https...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://i.ytimg.com/vi/DMC8djxGWrE/sddefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="https://i.ytimg.com/vi/DMC8djxGWrE/sddefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCZ4XBFuYtqvFFA15GRNp15g">sad.悲傷</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=eOQsXG2ghRo">
+                                                    <div class="markdown">LIL KUUDERE - STAR STORY FT. HATSUNE MIKU</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">LIL KUUDERE
+<a href="https://instagram.com/lilkuudere?igshid=1v7deum5wlz35">https://instagram.com/lilkuudere?igshid=1v7deum5wlz35</a>
+<a href="https://twitter.com/LILKUUDERE?s=09">https://twitter.com/LILKUUDERE?s=09</a>
+<a href="https://open.spotify.com/artist/6EWHt6Pw2nozCwX8AymuOh?si=h7vuULMCQlWGnWJrbjc3ng">https://open.spotify.com/artist/6EWHt6Pw2nozCwX8AymuOh?si=h7vuULMCQlWGnWJrbjc3ng</a>
+<a href="https://soundcloud.com/lilkuudere">https://soundcloud.com/lilkuudere</a>
+
+sad.悲傷
+<a href="https://twitter.com/sadrain80991020?s=09">https://twitter.com/sadrain80991020?s=09</a>
+<a href="https://ins">https://ins</a>...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://i.ytimg.com/vi/eOQsXG2ghRo/sddefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="https://i.ytimg.com/vi/eOQsXG2ghRo/sddefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 08:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="753583284893646850" id="message-753583284893646850">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます。大体聞けることは聞けたかと思います。MV制作の他に今後やりたいことや計画してることがあれば教えてください。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="753586089498771526" id="message-753586089498771526">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> Liveとか開催したいですねsadeyesさんやcold hartさんなどのエモアーティスト呼んだりして
+もちろんsad.悲傷と繋がりがあるアーティストも呼んでLiveやりたいです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="753588196893392926" id="message-753588196893392926">
+                <div class="chatlog__content">
+                    <div class="markdown">いいですね。VRChatとかは割とラッパーでもユーザーが多いのでオンラインライブも可能性ありそうです。tokyo-teleportのワールドもそのうち作る予定です。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="753589114435010582" id="message-753589114435010582">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+tokyo-teleportWorld！！
+めっちゃ楽しみです<img class="emoji " alt="🚀" title="🚀" src="https://twemoji.maxcdn.com/2/72x72/1f680.png"><img class="emoji " alt="🌏" title="🌏" src="https://twemoji.maxcdn.com/2/72x72/1f30f.png"> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="753590245097734175" id="message-753590245097734175">
+                <div class="chatlog__content">
+                    <div class="markdown">絶賛制作中です！最後に僕らのチャンネルについてどう思ってるか聞きたいんですがいいですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="753591335642202132" id="message-753591335642202132">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> 
+いいですよ！ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753592746836754492" id="message-753592746836754492">
+                <div class="chatlog__content">
+                    <div class="markdown">东京电讯さんのチャンネルは僕好みの曲ばっかりでディグるのに凄く役立っています✨
+あとチャンネルの世界観が凄く好きです！唯一無二って感じがします<img class="emoji " alt="🦋" title="🦋" src="https://twemoji.maxcdn.com/2/72x72/1f98b.png"> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="753595960025808957" id="message-753595960025808957">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます。著作権問題でグレーなところを極力なくそうと思ってて、AMVは作らないというルールでやってます。でも、AMVと比べると制作コストがかかるわ、動画の動きが少ないわ、でリスナーがどう思ってるのか気になってて、 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 09:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="753597511280623697" id="message-753597511280623697">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> なるほどです、やっぱり映像って悩みますよね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/561199590569672714/bad6281d27c0e32986c43f210b4ebe2b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="天王洲Isle#1895" data-user-id="561199590569672714" style="">天王洲Isle</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 10:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="753602462648238090" id="message-753602462648238090">
+                <div class="chatlog__content">
+                    <div class="markdown">3Dなら多少再利用もしやすいので勉強しながら少しづつ以降しようと頑張ってます </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753602725362532403" id="message-753602725362532403">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございました！他に聞きたいこととかあったらいつでも聞いてください。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/728281526298607715/41a91254a2c60ca409b40556ad4e3404.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="sad rain#5767" data-user-id="728281526298607715" style="">sad rain</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 10:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="753603281959387276" id="message-753603281959387276">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="天王洲Isle#1895">@天王洲Isle</span> こちらこそありがとうございました！お疲れ様です！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 85 message(s)</div>
+</div>
+
+</body>
+</html>
